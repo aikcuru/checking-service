@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Проверка контрагента — AIKCU.RU</title>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="brand">AIKCU.<span>RU</span></div>
+            <div>СЕРВИС ПРОВЕРКИ КОНТРАГЕНТОВ</div>
+        </div>
+
+        <nav>
+            <a href="#service">О сервисе</a>
+            <a href="#source">Источник данных</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="service">
+            <h1>Проверка контрагента</h1>
+            <p class="service-description">
+                Получите основные регистрационные сведения и факторы риска
+                по ИНН организации на основе данных официальных реестров.
+            </p>
+        </section>
+
+        <section class="search-card">
+            <form id="company-search-form">
+                <label for="inn">ИНН организации</label>
+
+                <div>
+                    <input
+                        id="inn"
+                        name="inn"
+                        type="text"
+                        inputmode="numeric"
+                        maxlength="10"
+                        placeholder="10 цифр"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit">
+                        Проверить
+                    </button>
+                </div>
+
+                <p>Введите 10-значный ИНН юридического лица.</p>
+            </form>
+
+            <div class="search-note">
+                <div class="search-note-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48">
+                        <path d="M24 5L39 11V22C39 31 33 38 24 43C15 38 9 31 9 22V11L24 5Z"></path>
+                        <path d="M18 24L22 28L30 19"></path>
+                    </svg>
+                </div>
+
+                <div>
+                    Данные проверяются<br>
+                    по официальным реестрам<br>
+                    через сервис Checko.
+                </div>
+            </div>
+        </section>
+
+        <section id="company-result" hidden>
+            <div>
+                <div id="company-status">Статус</div>
+                <h2 id="company-name">Название организации</h2>
+
+                <div class="company-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48">
+                        <path d="M9 41V17H25V41"></path>
+                        <path d="M25 41V9H39V41"></path>
+                        <path d="M5 41H43"></path>
+                        <path d="M14 22H19"></path>
+                        <path d="M14 28H19"></path>
+                        <path d="M14 34H19"></path>
+                        <path d="M30 15H34"></path>
+                        <path d="M30 22H34"></path>
+                        <path d="M30 29H34"></path>
+                        <path d="M30 35H34"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <span>ИНН</span>
+                    <strong id="company-inn">—</strong>
+                </div>
+
+                <div>
+                    <span>ОГРН</span>
+                    <strong id="company-ogrn">—</strong>
+                </div>
+
+                <div>
+                    <span>КПП</span>
+                    <strong id="company-kpp">—</strong>
+                </div>
+            </div>
+
+            <section>
+                <h3>Основная информация</h3>
+
+                <div>
+                    <article>
+                        <span>Дата регистрации</span>
+                        <strong id="company-registration-date">—</strong>
+                    </article>
+
+                    <article>
+                        <span>Руководитель</span>
+                        <strong id="company-manager">—</strong>
+                        <small id="company-manager-position">—</small>
+                    </article>
+
+                    <article>
+                        <span>Основной вид деятельности</span>
+                        <strong id="company-okved-code">—</strong>
+                        <p id="company-okved-name">—</p>
+                    </article>
+
+                    <article>
+                        <span>Юридический адрес</span>
+                        <strong id="company-address">—</strong>
+                    </article>
+                </div>
+            </section>
+
+            <section>
+                <h3>Факторы риска</h3>
+
+                <p id="risk-summary">
+                    Результат проверки факторов риска появится здесь.
+                </p>
+
+                <div id="risk-list"></div>
+            </section>
+        </section>
+
+        <section id="error-message" hidden>
+            <p></p>
+        </section>
+    </main>
+
+    <footer id="source">
+        <div class="source-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48">
+                <ellipse cx="22" cy="11" rx="12" ry="5"></ellipse>
+                <path d="M10 11V28C10 31 15 34 22 34"></path>
+                <path d="M34 11V22"></path>
+                <path d="M10 19C10 22 15 25 22 25C27 25 31 23 34 21"></path>
+                <path d="M10 27C10 30 15 33 22 33"></path>
+
+                <path d="M34 23L42 26V32C42 37 39 40 34 43C29 40 26 37 26 32V26L34 23Z"></path>
+                <path d="M31 32L33 34L37 29"></path>
+            </svg>
+        </div>
+
+        <div class="source-content">
+            <p>
+                <strong>Источник данных:</strong>
+                <a href="https://checko.ru/" target="_blank" rel="noopener noreferrer">
+                    Checko
+                </a>
+            </p>
+
+            <p>
+                Сведения сформированы на основании данных открытых государственных
+                реестров и носят справочный характер. Полученная информация не является
+                юридически значимым документом.
+            </p>
+        </div>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
